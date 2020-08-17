@@ -1,2 +1,4 @@
-github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
-github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
+github.com/totallygamerjet/w32 v0.0.1 h1:VTFlrmFAI2a81ikQFCJYMJZL9PGfbV9B7uv78Z45liw=
+github.com/totallygamerjet/w32 v0.0.1/go.mod h1:T4dQvPYZZudLqDmhbovvfT75lZAcJzg3iumQb4L9Ohc=
+golang.org/x/sys v0.0.0-20200509044756-6aff5f38e54f h1:mOhmO9WsBaJCNmaZHPtHs9wOcdqdKCjF6OPJlmDM3KI=
+golang.org/x/sys v0.0.0-20200509044756-6aff5f38e54f/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=

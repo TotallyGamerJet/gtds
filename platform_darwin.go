@@ -1,6 +1,6 @@
 // +build darwin
 
-package main
+package gtds
 
 /*
 #cgo CFLAGS: -x objective-c
@@ -76,7 +76,7 @@ void CreateWindow(_GoString_ title, int width, int height) {
 import "C"
 
 func platformCreateWindow(w Window) {
-	C.CreateWindow(w.title, C.int(w.width), C.int(w.height))
+	C.CreateWindow(w.Title, C.int(w.Width), C.int(w.Height))
 }
 
 func platformRun() {

@@ -1,8 +1,12 @@
-package main
+package gtds
 
-import "fmt"
+var cmds = make(chan command, 10)
 
-var cmds = make(chan int, 10)
+type command int
+
+const (
+	cmdCreateWindow command = iota
+)
 
 func Run(handler Handler) {
 	go handler()
@@ -10,17 +14,19 @@ func Run(handler Handler) {
 }
 
 type Window struct {
-	title         string
-	width, height int
-	style         int
+	Title         string
+	Width, Height int
+	Style         int
+}
+
+type windowData struct {
+	window Window
 }
 
 type Handler func()
 
 func CreateWindow(w Window) {
 	select {
-	case cmds <- 0:
-	default:
-		fmt.Println("I didn't expect this")
+	case cmds <- cmdCreateWindow:
 	}
 }
