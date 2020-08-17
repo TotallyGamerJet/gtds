@@ -44,13 +44,22 @@ func platformRun() {
 	}
 	appUpdate() //try to catch a call to window. if this fails then the program freezes.
 	//this is a race condition and should probably be fixed
+	for !processMessages() {
+	}
+}
+
+// processMessages return if the app should terimate
+func processMessages() bool {
 	msg := w32.MSG{}
-	for w32.GetMessage(&msg, 0, 0, 0) > 0 {
-		//w32.PeekMessage(&msg, 0, 0, 0, w32.PM_REMOVE)
+	for w32.PeekMessage(&msg, 0, 0, 0, w32.PM_REMOVE) {
+		if msg.Message == w32.WM_QUIT {
+			return true
+		}
 		appUpdate()
 		w32.TranslateMessage(&msg)
 		w32.DispatchMessage(&msg)
 	}
+	return false
 }
 
 func wndProc(hwnd w32.HWND, msg uint32, wparam, lparam uintptr) uintptr {
