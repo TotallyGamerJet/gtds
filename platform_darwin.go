@@ -75,7 +75,7 @@ void CreateWindow(_GoString_ title, int width, int height) {
 */
 import "C"
 
-func platformCreateWindow(w Window) {
+func platformCreateWindow(w WindowConfig) {
 	C.CreateWindow(w.Title, C.int(w.Width), C.int(w.Height))
 }
 

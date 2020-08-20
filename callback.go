@@ -1,17 +1,18 @@
 package gtds
 
-import "C"
+import "C" //required for
 import "fmt"
 
-//appUpdate is call everytime the app receives a notification
-//it does not wait for any commands
+//appUpdate is called everytime the app receives a notification
+//it will attempt to select any incoming command but does not wait
+//for any to arrive
 //export appUpdate
 func appUpdate() {
 	select {
 	case c := <-cmds:
-		switch c {
+		switch c.code {
 		case cmdCreateWindow:
-			platformCreateWindow(Window{"Title", 200, 200, 0})
+			platformCreateWindow(c.data.(WindowConfig))
 		default:
 			fmt.Println("NO")
 		}

@@ -14,7 +14,7 @@ const (
 
 var instance = w32.GetModuleHandle("GTDS")
 
-func platformCreateWindow(w Window) {
+func platformCreateWindow(w WindowConfig) {
 	handle := w32.CreateWindowEx(
 		0,
 		windows.StringToUTF16Ptr(className),

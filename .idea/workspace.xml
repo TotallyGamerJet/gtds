@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80a26bef-fec2-45f9-9476-ec0324a19619" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/internal/d3d11/d3d11_windows.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/f32color/rgba.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/callback.go" beforeDir="false" afterPath="$PROJECT_DIR$/callback.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/glu.go" beforeDir="false" afterPath="$PROJECT_DIR$/glu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform_darwin.go" beforeDir="false" afterPath="$PROJECT_DIR$/platform_darwin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/platform_windows.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/window_handler.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +62,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\E Drive\GoProjects\gtds\internal" />
+      <recent name="D:\E Drive\GoProjects\gtds\d3d11" />
       <recent name="D:\E Drive\GoProjects\gtds\test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -102,22 +112,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="319" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597700322321" />
-    <state width="914" height="278" key="GridCell.Tab.0.bottom" timestamp="1597707244878">
+    <state width="914" height="278" key="GridCell.Tab.0.bottom" timestamp="1597951800974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597707244878" />
-    <state width="914" height="278" key="GridCell.Tab.0.center" timestamp="1597707244878">
+    <state width="914" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
+    <state width="914" height="278" key="GridCell.Tab.0.center" timestamp="1597951800974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597707244878" />
-    <state width="914" height="278" key="GridCell.Tab.0.left" timestamp="1597707244878">
+    <state width="914" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
+    <state width="914" height="278" key="GridCell.Tab.0.left" timestamp="1597951800974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597707244878" />
-    <state width="914" height="278" key="GridCell.Tab.0.right" timestamp="1597707244878">
+    <state width="914" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
+    <state width="914" height="278" key="GridCell.Tab.0.right" timestamp="1597951800974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="914" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597707244878" />
+    <state width="914" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
     <state x="922" y="168" key="SettingsEditor" timestamp="1597701513066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -8,22 +8,22 @@ func init() {
 	go windowHandler()
 }
 
-var windowChan = make(chan func(map[Window]windowData))
+var windowChan = make(chan func(map[WindowConfig]windowData))
 
 var (
 	ErrWindowNoExist = fmt.Errorf("window doesn't exist")
 )
 
 func windowHandler() {
-	windowList := make(map[Window]windowData)
+	windowList := make(map[WindowConfig]windowData)
 	for op := range windowChan {
 		op(windowList)
 	}
 }
 
-func setData(w Window, f func(*windowData)) error {
+func setData(w WindowConfig, f func(*windowData)) error {
 	err := make(chan error)
-	windowChan <- func(m map[Window]windowData) {
+	windowChan <- func(m map[WindowConfig]windowData) {
 		_, ok := m[w]
 		if !ok {
 			err <- ErrWindowNoExist
@@ -37,9 +37,9 @@ func setData(w Window, f func(*windowData)) error {
 	return <-err
 }
 
-func getData(win Window) windowData {
+func getData(win WindowConfig) windowData {
 	ret := make(chan windowData)
-	windowChan <- func(m map[Window]windowData) {
+	windowChan <- func(m map[WindowConfig]windowData) {
 		d, ok := m[win]
 		if !ok { //If it doesn't exist make a new one
 			m[win] = windowData{window: win}
@@ -51,9 +51,9 @@ func getData(win Window) windowData {
 	return <-ret
 }
 
-func removeData(win Window) error {
+func removeData(win WindowConfig) error {
 	err := make(chan error)
-	windowChan <- func(m map[Window]windowData) {
+	windowChan <- func(m map[WindowConfig]windowData) {
 		_, ok := m[win]
 		if !ok {
 			err <- ErrWindowNoExist

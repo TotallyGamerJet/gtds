@@ -2,10 +2,15 @@ package gtds
 
 var cmds = make(chan command, 10)
 
-type command int
+type command struct {
+	code commandCode
+	data interface{}
+}
+
+type commandCode int
 
 const (
-	cmdCreateWindow command = iota
+	cmdCreateWindow commandCode = iota
 )
 
 func Run(handler Handler) {
@@ -13,20 +18,23 @@ func Run(handler Handler) {
 	platformRun()
 }
 
-type Window struct {
+type Window struct{}
+
+type WindowConfig struct {
 	Title         string
 	Width, Height int
 	Style         int
 }
 
 type windowData struct {
-	window Window
+	window WindowConfig
 }
 
 type Handler func()
 
-func CreateWindow(w Window) {
+func CreateWindow(w WindowConfig) Window {
 	select {
-	case cmds <- cmdCreateWindow:
+	case cmds <- command{code: cmdCreateWindow, data: w}:
 	}
+	return Window{}
 }
