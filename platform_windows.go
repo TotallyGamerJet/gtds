@@ -14,7 +14,7 @@ const (
 
 var instance = w32.GetModuleHandle("GTDS")
 
-func platformCreateWindow(w WindowConfig) {
+func platformCreateWindow(w WindowConfig) Window {
 	handle := w32.CreateWindowEx(
 		0,
 		windows.StringToUTF16Ptr(className),
@@ -23,6 +23,7 @@ func platformCreateWindow(w WindowConfig) {
 		0, 0, w.Width, w.Height,
 		0, 0, instance, nil)
 	w32.ShowWindow(handle, w32.SW_SHOW)
+	return Window{}
 }
 
 func platformRun() {
@@ -42,8 +43,6 @@ func platformRun() {
 	if atom := w32.RegisterClassEx(&wc); atom == 0 {
 		panic("failed to register window class")
 	}
-	appUpdate() //try to catch a call to window. if this fails then the program freezes.
-	//this is a race condition and should probably be fixed
 	for !processMessages() {
 	}
 }

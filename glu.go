@@ -1,20 +1,21 @@
 package gtds
 
-var cmds = make(chan command, 10)
+import (
+	"github.com/faiface/mainthread"
+)
 
-type command struct {
-	code commandCode
-	data interface{}
-}
-
-type commandCode int
+type WindowStyle int
 
 const (
-	cmdCreateWindow commandCode = iota
+	Borderless WindowStyle = 1 << iota
+	Titled
+	Closable
+	Resizable
+	Minimizable
 )
 
 func Run(handler Handler) {
-	go handler()
+	mainthread.Run(handler)
 	platformRun()
 }
 
@@ -23,7 +24,7 @@ type Window struct{}
 type WindowConfig struct {
 	Title         string
 	Width, Height int
-	Style         int
+	Style         WindowStyle
 }
 
 type windowData struct {
@@ -33,8 +34,5 @@ type windowData struct {
 type Handler func()
 
 func CreateWindow(w WindowConfig) Window {
-	select {
-	case cmds <- command{code: cmdCreateWindow, data: w}:
-	}
-	return Window{}
+	return platformCreateWindow(w)
 }

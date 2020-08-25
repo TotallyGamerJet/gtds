@@ -9,5 +9,5 @@ func main() {
 }
 
 func handler() {
-	gtds.CreateWindow(gtds.WindowConfig{Title: "from main", Width: 1080, Height: 720})
+	gtds.CreateWindow(gtds.WindowConfig{Title: "from main", Style: gtds.Titled | gtds.Closable, Width: 720, Height: 480})
 }
