@@ -14,12 +14,32 @@ const (
 
 var instance = w32.GetModuleHandle("GTDS")
 
+func translateStyle(style WindowStyle) uint {
+	if style == Borderless {
+		return 0
+	}
+	var wsStyle uint = w32.WS_SYSMENU
+	if style&Titled != 0 {
+		wsStyle |= w32.WS_CAPTION
+	}
+	if style&Closable != 0 {
+		//TODO:
+	}
+	if style&Resizable != 0 {
+		wsStyle |= w32.WS_SIZEBOX
+	}
+	if style&Minimizable != 0 {
+		wsStyle |= w32.WS_MINIMIZEBOX
+	}
+	return wsStyle
+}
+
 func platformCreateWindow(w WindowConfig) Window {
 	handle := w32.CreateWindowEx(
 		0,
 		windows.StringToUTF16Ptr(className),
 		windows.StringToUTF16Ptr(w.Title),
-		w32.WS_CAPTION|w32.WS_MINIMIZE|w32.WS_SYSMENU,
+		translateStyle(w.Style),
 		0, 0, w.Width, w.Height,
 		0, 0, instance, nil)
 	w32.ShowWindow(handle, w32.SW_SHOW)

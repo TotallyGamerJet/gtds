@@ -21,13 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="80a26bef-fec2-45f9-9476-ec0324a19619" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/callback.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/glu.go" beforeDir="false" afterPath="$PROJECT_DIR$/glu.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform_darwin.go" beforeDir="false" afterPath="$PROJECT_DIR$/platform_darwin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/platform_windows.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,25 +145,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="319" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597700322321" />
-    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1598364160320">
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1598364382295">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1598364160320" />
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1598364382295" />
     <state width="914" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
-    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1598364160318">
+    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1598364382293">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1598364160318" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1598364382293" />
     <state width="914" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
-    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1598364160317">
+    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1598364382292">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1598364160317" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1598364382292" />
     <state width="914" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
-    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1598364160319">
+    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1598364382294">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1598364160319" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1598364382294" />
     <state width="914" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
     <state x="283" y="78" key="SettingsEditor" timestamp="1598363475334">
       <screen x="0" y="0" width="1280" height="800" />
