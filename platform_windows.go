@@ -28,7 +28,7 @@ func translateStyle(style WindowStyle) uint {
 	if style&Resizable != 0 {
 		wsStyle |= w32.WS_SIZEBOX
 	}
-	if style&Minimizable != 0 {
+	if style&Hideable != 0 {
 		wsStyle |= w32.WS_MINIMIZEBOX
 	}
 	return wsStyle
@@ -46,7 +46,7 @@ func platformCreateWindow(w WindowConfig) Window {
 	return Window{}
 }
 
-func platformRun() {
+func platformInit() {
 	wc := w32.WNDCLASSEX{}
 	wc.Size = uint32(unsafe.Sizeof(wc))
 	wc.Style = w32.CS_OWNDC

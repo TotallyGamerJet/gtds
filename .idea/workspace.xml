@@ -20,8 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="80a26bef-fec2-45f9-9476-ec0324a19619" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/callbacks.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/coreanim/coreanim.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/coreanim/coreanim.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/coreanim/coreanim.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/metal/mtl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/metal/mtl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/metal/mtl.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/glu.go" beforeDir="false" afterPath="$PROJECT_DIR$/glu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform_darwin.go" beforeDir="false" afterPath="$PROJECT_DIR$/platform_darwin.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/platform_windows.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/window_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/window_handler.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +74,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/internal/coreanim" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -77,16 +91,28 @@
       <recent name="D:\E Drive\GoProjects\gtds\test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/coreanim" />
+      <recent name="$PROJECT_DIR$/internal/metal" />
+      <recent name="$PROJECT_DIR$/internal/appkit" />
       <recent name="D:\E Drive\GoProjects\gtds" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build letsgo/test">
+  <component name="RunManager" selected="Go Build.go build letsgo/examples">
     <configuration name="go build letsgo" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="letsgo" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="letsgo" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build letsgo/examples" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="letsgo" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/examples/main.go" />
+      <package value="letsgo/examples" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -101,6 +127,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build letsgo/examples" />
         <item itemvalue="Go Build.go build letsgo/test" />
         <item itemvalue="Go Build.go build letsgo" />
       </list>
@@ -120,6 +147,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -145,26 +173,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="820" y="319" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1597700322321" />
-    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1598364382295">
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom" timestamp="1599750636529">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1598364382295" />
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.0.1280.800@0.0.1280.800" timestamp="1599750636529" />
     <state width="914" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
-    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1598364382293">
+    <state width="1238" height="212" key="GridCell.Tab.0.bottom/0.23.1280.710@0.23.1280.710" timestamp="1599666375083" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center" timestamp="1599750636528">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1598364382293" />
+    <state width="1238" height="212" key="GridCell.Tab.0.center/0.0.1280.800@0.0.1280.800" timestamp="1599750636528" />
     <state width="914" height="278" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
-    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1598364382292">
+    <state width="1238" height="212" key="GridCell.Tab.0.center/0.23.1280.710@0.23.1280.710" timestamp="1599666375082" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left" timestamp="1599750636527">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1598364382292" />
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.0.1280.800@0.0.1280.800" timestamp="1599750636527" />
     <state width="914" height="278" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
-    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1598364382294">
+    <state width="1238" height="212" key="GridCell.Tab.0.left/0.23.1280.710@0.23.1280.710" timestamp="1599666375082" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right" timestamp="1599750636528">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1598364382294" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1599750636528" />
     <state width="914" height="278" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1597951800974" />
+    <state width="1238" height="212" key="GridCell.Tab.0.right/0.23.1280.710@0.23.1280.710" timestamp="1599666375083" />
     <state x="283" y="78" key="SettingsEditor" timestamp="1598363475334">
       <screen x="0" y="0" width="1280" height="800" />
     </state>

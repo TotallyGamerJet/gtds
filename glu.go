@@ -1,8 +1,6 @@
 package gtds
 
-import (
-	"github.com/faiface/mainthread"
-)
+import "unsafe"
 
 type WindowStyle int
 
@@ -11,15 +9,13 @@ const (
 	Titled
 	Closable
 	Resizable
-	Minimizable
+	Hideable
+	Fullscreen
 )
 
-func Run(handler Handler) {
-	mainthread.Run(handler)
-	platformRun()
+type Window struct {
+	ptr unsafe.Pointer
 }
-
-type Window struct{}
 
 type WindowConfig struct {
 	Title         string
@@ -28,11 +24,25 @@ type WindowConfig struct {
 }
 
 type windowData struct {
-	window WindowConfig
+	window      Window
+	shouldClose bool
 }
 
-type Handler func()
-
 func CreateWindow(w WindowConfig) Window {
+	if w.Width < 0 || w.Height < 0 {
+		panic("Improper Window Dimensions")
+	}
 	return platformCreateWindow(w)
+}
+
+func Init() {
+	platformInit()
+}
+
+func PollEvents() {
+	platformPollEvents()
+}
+
+func (w Window) ShouldClose() bool {
+	return getData(w).shouldClose
 }
