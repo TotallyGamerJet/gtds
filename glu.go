@@ -1,6 +1,13 @@
 package gtds
 
-import "unsafe"
+import (
+	"runtime"
+	"unsafe"
+)
+
+func init() {
+	runtime.LockOSThread()
+}
 
 type WindowStyle int
 
@@ -35,14 +42,15 @@ func CreateWindow(w WindowConfig) Window {
 	return platformCreateWindow(w)
 }
 
-func Init() {
-	platformInit()
-}
-
 func PollEvents() {
 	platformPollEvents()
 }
 
 func (w Window) ShouldClose() bool {
 	return getData(w).shouldClose
+}
+
+func Run(run func() error) error {
+	platformInit()
+	return run()
 }

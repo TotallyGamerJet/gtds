@@ -7,7 +7,6 @@ import (
 	"letsgo/internal/coreanim"
 	mtl "letsgo/internal/metal"
 	"log"
-	"runtime"
 	"time"
 	"unsafe"
 )
@@ -40,29 +39,23 @@ fragment float4 FragmentShader(Vertex in [[stage_in]]) {
 }
 `
 
-func init() {
-	runtime.LockOSThread()
-}
-
 func main() {
-	err := run()
-	if err != nil {
+	if err := gtds.Run(run); err != nil {
 		log.Fatalln(err)
 	}
 }
 
 func run() error {
-	device, err := mtl.CreateSystemDefaultDevice()
-	if err != nil {
-		return err
-	}
-	gtds.Init()
 	window := gtds.CreateWindow(gtds.WindowConfig{
 		Title:  "Window Title Here",
 		Style:  gtds.Titled | gtds.Closable,
 		Width:  640,
 		Height: 480,
 	})
+	device, err := mtl.CreateSystemDefaultDevice()
+	if err != nil {
+		return err
+	}
 	layer := coreanim.MakeMetalLayer()
 	layer.SetDevice(device)
 	layer.SetPixelFormat(80) //TODO: replace with constant
