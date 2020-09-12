@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"golang.org/x/image/math/f32"
 	"letsgo"
-	"letsgo/internal/coreanim"
 	mtl "letsgo/internal/metal"
 	"log"
 	"time"
@@ -56,15 +55,6 @@ func run() error {
 	if err != nil {
 		return err
 	}
-	layer := coreanim.MakeMetalLayer()
-	layer.SetDevice(device)
-	layer.SetPixelFormat(80) //TODO: replace with constant
-	layer.SetDrawableSize(window.GetFrameBufferSize())
-	layer.SetMaximumDrawableCount(3)
-	layer.SetDisplaySyncEnabled(true)
-	cv := window.ContentView()
-	cv.SetLayer(layer)
-	cv.SetWantsLayer(true)
 
 	var windowSize = [2]int32{640, 480}
 	var pos [2]float32
@@ -84,7 +74,7 @@ func run() error {
 	var rpld mtl.RenderPipelineDescriptor
 	rpld.VertexFunction = vs
 	rpld.FragmentFunction = fs
-	rpld.ColorAttachments[0].PixelFormat = layer.PixelFormat()
+	rpld.ColorAttachments[0].PixelFormat = window.PixelFormat()
 	rps, err := device.MakeRenderPipelineState(rpld)
 	if err != nil {
 		return err
@@ -109,7 +99,7 @@ func run() error {
 	for !window.ShouldClose() {
 		gtds.PollEvents()
 		// Create a drawable to render into.
-		drawable, err := layer.NextDrawable()
+		drawable, err := window.NextDrawable()
 		if err != nil {
 			return err
 		}
@@ -135,7 +125,6 @@ func run() error {
 
 		frame <- struct{}{}
 	}
-	fmt.Println("The end")
 	return nil
 }
 

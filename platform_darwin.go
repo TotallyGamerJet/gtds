@@ -4,9 +4,11 @@ package gtds
 
 /*
 #cgo CFLAGS: -x objective-c
-#cgo LDFLAGS: -framework Cocoa
+#cgo LDFLAGS: -framework Cocoa -framework MetalKit -framework Metal
 
 #import <Cocoa/Cocoa.h>
+#import <MetalKit/MetalKit.h>
+#import <Metal/Metal.h>
 
 extern void shouldClose(void* window);
 
@@ -81,6 +83,12 @@ void platformPollEvents(void) {
     } // autoreleasepool
 }
 
+NSRect platformGetFrameBufferSize(void* window) {
+	const NSRect contentRect = [((NSWindow*)(window)).contentView frame];
+    const NSRect fbRect = [((NSWindow*)(window)).contentView convertRectToBacking:contentRect];
+	return fbRect;
+}
+
 void* CreateWindow(_GoString_ title, int width, int height, int style) {
 	[NSAutoreleasePool new];
 	id window = [[NSWindow alloc] initWithContentRect:NSMakeRect(0, 0, width, height)
@@ -90,33 +98,29 @@ void* CreateWindow(_GoString_ title, int width, int height, int style) {
 	[window setTitle:[[[NSString alloc] initWithBytes:_GoStringPtr(title) length:_GoStringLen(title) encoding:NSUTF8StringEncoding]autorelease]];
 	[window makeKeyAndOrderFront:nil];
 	[window setDelegate:[[WindowDelegate alloc] init]];
-
+	MTKView* view = [[MTKView alloc]initWithFrame: [window frame] device: MTLCreateSystemDefaultDevice()];
+	view.drawableSize = (CGSize)platformGetFrameBufferSize(window).size;
+	view.paused = NO;
+	view.enableSetNeedsDisplay = NO;
+	((NSWindow *)window).contentView=view;
 	platformPollEvents(); //Allow NSApp to catch up
 	return window;
 }
 
-NSRect platformGetFrameBufferSize(void* window) {
-	const NSRect contentRect = [((NSWindow*)(window)).contentView frame];
-    const NSRect fbRect = [((NSWindow*)(window)).contentView convertRectToBacking:contentRect];
-	return fbRect;
+uint16_t Window_PixelFormat(void* window) {
+	id view = ((NSWindow*)window).contentView;
+	return ((MTKView*)view).colorPixelFormat;
 }
 
-void * Window_ContentView(void * window) {
-	return ((NSWindow *)window).contentView;
-}
-
-void View_SetLayer(void * view, void * layer) {
-	((NSView *)view).layer = (CALayer *)layer;
-}
-
-void View_SetWantsLayer(void * view, BOOL wantsLayer) {
-	((NSView *)view).wantsLayer = wantsLayer;
+void* Window_nextDrawable(void* window) {
+	id layer = ((NSWindow*)window).contentView.layer;
+	return [(CAMetalLayer *)layer nextDrawable];
 }
 */
 import "C"
 import (
 	"letsgo/internal/coreanim"
-	"unsafe"
+	mtl "letsgo/internal/metal"
 )
 
 func translateStyle(style WindowStyle) int {
@@ -170,39 +174,15 @@ func platformPollEvents() {
 	C.platformPollEvents()
 }
 
-// View is the infrastructure for drawing, printing, and handling events in an app.
-//
-// Reference: https://developer.apple.com/documentation/appkit/nsview.
-type View struct {
-	view unsafe.Pointer
-}
-
-// SetLayer sets v.layer to l.
-//
-// Reference: https://developer.apple.com/documentation/appkit/nsview/1483298-layer.
-func (v View) SetLayer(l coreanim.Layer) {
-	C.View_SetLayer(v.view, l.Layer())
-}
-
-// SetWantsLayer sets v.wantsLayer to wantsLayer.
-//
-// Reference: https://developer.apple.com/documentation/appkit/nsview/1483695-wantslayer.
-func (v View) SetWantsLayer(wantsLayer bool) {
-	C.View_SetWantsLayer(v.view, toCBool(wantsLayer))
-}
-
-func toCBool(b bool) C.BOOL {
-	if b {
-		return 1
-	}
-	return 0
-}
-
-func (w Window) ContentView() View {
-	return View{C.Window_ContentView(w.ptr)}
-}
-
 func (w Window) GetFrameBufferSize() (int, int) {
 	rect := C.platformGetFrameBufferSize(w.ptr)
 	return int(rect.size.width), int(rect.size.height)
+}
+
+func (w Window) PixelFormat() mtl.PixelFormat {
+	return mtl.PixelFormat(C.Window_PixelFormat(w.ptr))
+}
+
+func (w Window) NextDrawable() (coreanim.MetalDrawable, error) {
+	return coreanim.MetalDrawable{C.Window_nextDrawable(w.ptr)}, nil
 }

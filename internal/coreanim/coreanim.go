@@ -119,17 +119,17 @@ func (ml MetalLayer) NextDrawable() (MetalDrawable, error) {
 //
 // Reference: https://developer.apple.com/documentation/quartzcore/cametaldrawable.
 type MetalDrawable struct {
-	metalDrawable unsafe.Pointer
+	MetalDrawable unsafe.Pointer
 }
 
 // Drawable implements the mtl.Drawable interface.
-func (md MetalDrawable) Drawable() unsafe.Pointer { return md.metalDrawable }
+func (md MetalDrawable) Drawable() unsafe.Pointer { return md.MetalDrawable }
 
 // Texture returns a Metal texture object representing the drawable object's content.
 //
 // Reference: https://developer.apple.com/documentation/quartzcore/cametaldrawable/1478159-texture.
 func (md MetalDrawable) Texture() mtl.Texture {
-	return mtl.NewTexture(C.MetalDrawable_Texture(md.metalDrawable))
+	return mtl.NewTexture(C.MetalDrawable_Texture(md.MetalDrawable))
 }
 
 func toCBool(b bool) C.BOOL {
