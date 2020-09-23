@@ -2,7 +2,6 @@ package gtds
 
 import (
 	"runtime"
-	"unsafe"
 )
 
 func init() {
@@ -21,7 +20,7 @@ const (
 )
 
 type Window struct {
-	ptr unsafe.Pointer
+	ptr uintptr
 }
 
 type WindowConfig struct {

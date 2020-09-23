@@ -67,8 +67,7 @@ void StartApp() {
 }
 
 void platformPollEvents(void) {
-    @autoreleasepool {
-
+   NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
     for (;;) {
         NSEvent* event = [NSApp nextEventMatchingMask:NSEventMaskAny
 			untilDate:[NSDate distantPast]
@@ -79,8 +78,7 @@ void platformPollEvents(void) {
 
         [NSApp sendEvent:event];
     }
-
-    } // autoreleasepool
+	[pool release];
 }
 
 NSRect platformGetFrameBufferSize(void* window) {
@@ -97,7 +95,7 @@ void* CreateWindow(_GoString_ title, int width, int height, int style) {
 	//[window setCanBecomeKeyWindow:YES];
 	[window setTitle:[[[NSString alloc] initWithBytes:_GoStringPtr(title) length:_GoStringLen(title) encoding:NSUTF8StringEncoding]autorelease]];
 	[window makeKeyAndOrderFront:nil];
-	[window setDelegate:[[WindowDelegate alloc] init]];
+	[window setDelegate:[[WindowDelegate alloc] init]]; //TODO: pass in the device
 	MTKView* view = [[MTKView alloc]initWithFrame: [window frame] device: MTLCreateSystemDefaultDevice()];
 	view.drawableSize = (CGSize)platformGetFrameBufferSize(window).size;
 	view.paused = NO;
@@ -121,6 +119,7 @@ import "C"
 import (
 	"letsgo/internal/coreanim"
 	mtl "letsgo/internal/metal"
+	"unsafe"
 )
 
 func translateStyle(style WindowStyle) int {
@@ -161,7 +160,7 @@ func translateStyle(style WindowStyle) int {
 
 func platformCreateWindow(w WindowConfig) Window {
 	ptr := C.CreateWindow(w.Title, C.int(w.Width), C.int(w.Height), C.int(translateStyle(w.Style)))
-	win := Window{ptr}
+	win := Window{uintptr(ptr)}
 	getData(win)
 	return win
 }
@@ -175,14 +174,14 @@ func platformPollEvents() {
 }
 
 func (w Window) GetFrameBufferSize() (int, int) {
-	rect := C.platformGetFrameBufferSize(w.ptr)
+	rect := C.platformGetFrameBufferSize(unsafe.Pointer(w.ptr))
 	return int(rect.size.width), int(rect.size.height)
 }
 
 func (w Window) PixelFormat() mtl.PixelFormat {
-	return mtl.PixelFormat(C.Window_PixelFormat(w.ptr))
+	return mtl.PixelFormat(C.Window_PixelFormat(unsafe.Pointer(w.ptr)))
 }
 
 func (w Window) NextDrawable() (coreanim.MetalDrawable, error) {
-	return coreanim.MetalDrawable{C.Window_nextDrawable(w.ptr)}, nil
+	return coreanim.MetalDrawable{C.Window_nextDrawable(unsafe.Pointer(w.ptr))}, nil
 }
