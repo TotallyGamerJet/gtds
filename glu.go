@@ -1,40 +1,56 @@
 package gtds
 
-var cmds = make(chan command, 10)
-
-type command struct {
-	code commandCode
-	data interface{}
-}
-
-type commandCode int
-
-const (
-	cmdCreateWindow commandCode = iota
+import (
+	"runtime"
+	"unsafe"
 )
 
-func Run(handler Handler) {
-	go handler()
-	platformRun()
+func init() {
+	runtime.LockOSThread()
 }
 
-type Window struct{}
+type WindowStyle int
+
+const (
+	Borderless WindowStyle = 1 << iota
+	Titled
+	Closable
+	Resizable
+	Hideable
+	Fullscreen
+)
+
+type Window struct {
+	ptr unsafe.Pointer
+}
 
 type WindowConfig struct {
 	Title         string
 	Width, Height int
-	Style         int
+	Style         WindowStyle
 }
 
 type windowData struct {
-	window WindowConfig
+	window      Window
+	shouldClose bool
 }
 
-type Handler func()
-
 func CreateWindow(w WindowConfig) Window {
-	select {
-	case cmds <- command{code: cmdCreateWindow, data: w}:
+	if w.Width < 0 || w.Height < 0 {
+		panic("Improper Window Dimensions")
 	}
-	return Window{}
+	return platformCreateWindow(w)
+}
+
+func PollEvents() {
+	platformPollEvents()
+}
+
+func (w Window) ShouldClose() bool {
+	return getData(w).shouldClose
+}
+
+func Run(run func() error) error {
+	platformInit()
+	return run()
 }

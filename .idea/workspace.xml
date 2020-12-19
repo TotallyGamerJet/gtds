@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="80a26bef-fec2-45f9-9476-ec0324a19619" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +32,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -39,7 +57,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/internal/coreanim" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -47,7 +65,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -56,16 +74,28 @@
       <recent name="D:\E Drive\GoProjects\gtds\test" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/internal/coreanim" />
+      <recent name="$PROJECT_DIR$/internal/metal" />
+      <recent name="$PROJECT_DIR$/internal/appkit" />
       <recent name="D:\E Drive\GoProjects\gtds" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build letsgo/test">
+  <component name="RunManager" selected="Go Build.go build letsgo/examples">
     <configuration name="go build letsgo" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="letsgo" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="letsgo" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build letsgo/examples" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="letsgo" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/examples/main.go" />
+      <package value="letsgo/examples" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -80,6 +110,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build letsgo/examples" />
         <item itemvalue="Go Build.go build letsgo/test" />
         <item itemvalue="Go Build.go build letsgo" />
       </list>
@@ -89,14 +120,42 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
+    <state x="440" y="337" key="#GOROOT" timestamp="1598361910814">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="440" y="337" key="#GOROOT/0.0.1280.800@0.0.1280.800" timestamp="1598361910814" />
     <state x="1232" y="356" key="#Go_Modules" timestamp="1597700324070">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1232" y="356" key="#Go_Modules/0.0.1920.1040@0.0.1920.1040" timestamp="1597700324070" />
+    <state x="240" y="48" key="#Plugins" timestamp="1599829894432">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="240" y="48" key="#Plugins/0.0.1280.800@0.0.1280.800" timestamp="1599829894432" />
+    <state x="569" y="151" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1598363461925">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="569" y="151" key="#com.intellij.ide.macro.MacrosDialog/0.0.1280.800@0.0.1280.800" timestamp="1598363461925" />
+    <state x="401" y="224" key="EditFileWatcherDialog" timestamp="1598363466858">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="401" y="224" key="EditFileWatcherDialog/0.0.1280.800@0.0.1280.800" timestamp="1598363466858" />
     <state x="820" y="319" key="FileChooserDialogImpl" timestamp="1597700322321">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -120,10 +179,12 @@
     <state x="922" y="168" key="SettingsEditor" timestamp="1597701513066">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="283" y="78" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1598363475334" />
     <state x="922" y="168" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1597701513066" />
-    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1597701506620">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="735" y="177" width="670" height="522" key="search.everywhere.popup" timestamp="1599829871810">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
+    <state x="735" y="177" width="670" height="522" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1599829871810" />
     <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597701506620" />
   </component>
 </project>

@@ -14,18 +14,39 @@ const (
 
 var instance = w32.GetModuleHandle("GTDS")
 
-func platformCreateWindow(w WindowConfig) {
+func translateStyle(style WindowStyle) uint {
+	if style == Borderless {
+		return 0
+	}
+	var wsStyle uint = w32.WS_SYSMENU
+	if style&Titled != 0 {
+		wsStyle |= w32.WS_CAPTION
+	}
+	if style&Closable != 0 {
+		//TODO:
+	}
+	if style&Resizable != 0 {
+		wsStyle |= w32.WS_SIZEBOX
+	}
+	if style&Hideable != 0 {
+		wsStyle |= w32.WS_MINIMIZEBOX
+	}
+	return wsStyle
+}
+
+func platformCreateWindow(w WindowConfig) Window {
 	handle := w32.CreateWindowEx(
 		0,
 		windows.StringToUTF16Ptr(className),
 		windows.StringToUTF16Ptr(w.Title),
-		w32.WS_CAPTION|w32.WS_MINIMIZE|w32.WS_SYSMENU,
+		translateStyle(w.Style),
 		0, 0, w.Width, w.Height,
 		0, 0, instance, nil)
 	w32.ShowWindow(handle, w32.SW_SHOW)
+	return Window{}
 }
 
-func platformRun() {
+func platformInit() {
 	wc := w32.WNDCLASSEX{}
 	wc.Size = uint32(unsafe.Sizeof(wc))
 	wc.Style = w32.CS_OWNDC
@@ -42,8 +63,6 @@ func platformRun() {
 	if atom := w32.RegisterClassEx(&wc); atom == 0 {
 		panic("failed to register window class")
 	}
-	appUpdate() //try to catch a call to window. if this fails then the program freezes.
-	//this is a race condition and should probably be fixed
 	for !processMessages() {
 	}
 }
